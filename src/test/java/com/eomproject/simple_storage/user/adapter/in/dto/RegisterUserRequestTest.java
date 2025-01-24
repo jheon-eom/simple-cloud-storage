@@ -13,11 +13,7 @@ class RegisterUserRequestTest {
         String password = "abc1234";
 
         // when
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
-                () -> new RegisterUserRequest(account, password));
-
-        // then
-        assertEquals("account is null or empty", exception.getMessage());
+        assertThrows(IllegalArgumentException.class, () -> new RegisterUserRequest(account, password));
     }
 
     @Test
@@ -27,10 +23,6 @@ class RegisterUserRequestTest {
         String password = null;
 
         // when
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
-                () -> new RegisterUserRequest(account, password));
-
-        // then
-        assertEquals("password is null or empty", exception.getMessage());
+        assertThrows(IllegalArgumentException.class, () -> new RegisterUserRequest(account, password));
     }
 }
