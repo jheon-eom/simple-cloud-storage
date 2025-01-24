@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor
 @Service
-public class PasswordManager {
+public class PasswordManager { // 책임이 명확해지면 Manager 대신 책임과 관련된 이름으로 변경
 
     private final PasswordEncoder passwordEncoder;
 
