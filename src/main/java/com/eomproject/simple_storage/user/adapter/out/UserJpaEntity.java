@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "user")
+@Table(name = "users")
 @Entity
 public class UserJpaEntity extends AuditingEntity {
 
@@ -17,6 +17,7 @@ public class UserJpaEntity extends AuditingEntity {
     @Id
     private Long id;
 
+    @Column(unique = true)
     private String account;
 
     private String password;
