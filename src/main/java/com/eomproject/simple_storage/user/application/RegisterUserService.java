@@ -4,24 +4,30 @@ import com.eomproject.simple_storage.user.adapter.out.UserJpaEntity;
 import com.eomproject.simple_storage.user.application.dto.RegisterUserCommand;
 import com.eomproject.simple_storage.user.application.port.in.RegisterUserUseCase;
 import com.eomproject.simple_storage.user.application.port.out.RegisterUserPort;
+import com.eomproject.simple_storage.user.domain.PasswordManager;
+import com.eomproject.simple_storage.user.domain.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 @RequiredArgsConstructor
 @Service
 public class RegisterUserService implements RegisterUserUseCase {
 
+    private final PasswordManager passwordManager;
     private final RegisterUserPort registerUserPort;
 
     @Override
     public void registerUser(RegisterUserCommand command) {
-        /**
-         * 1. 패스워드 암호화
-         * 1. command를 User 도메인으로 변환
-         * 2. User 도메인을 엔티티로 변환
-         * 3. 엔티티를 저장
-         */
-        registerUserPort.saveUser();
+        String encryptPassword = passwordManager.encryptPassword(command.password());
+        User user = new User(command.account(), encryptPassword);
+        UserJpaEntity userJpaEntity = toEntity(user);
+        registerUserPort.save(userJpaEntity);
+    }
+
+    private UserJpaEntity toEntity(User user) {
+        return UserJpaEntity.builder()
+                .account(user.getAccount())
+                .password(user.getPassword())
+                .build();
     }
 }

@@ -3,8 +3,10 @@ package com.eomproject.simple_storage.user.adapter.out;
 import com.eomproject.simple_storage.common.entity.AuditingEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.NoArgsConstructor;
 
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "user")
