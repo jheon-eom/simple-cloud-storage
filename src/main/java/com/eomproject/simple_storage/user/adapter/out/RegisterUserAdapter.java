@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @RequiredArgsConstructor
 @Component
-public class SaveUserAdapter implements RegisterUserPort {
+public class RegisterUserAdapter implements RegisterUserPort {
 
     private final UserRepository userRepository;
 
