@@ -1,5 +1,6 @@
-package com.eomproject.simple_storage.user.domain;
+package com.eomproject.simple_storage.user.application;
 
+import com.eomproject.simple_storage.user.application.PasswordManager;
 import org.junit.jupiter.api.Test;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;

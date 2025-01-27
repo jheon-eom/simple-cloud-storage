@@ -1,4 +1,4 @@
-package com.eomproject.simple_storage.user.domain;
+package com.eomproject.simple_storage.user.application;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;

@@ -4,7 +4,6 @@ import com.eomproject.simple_storage.user.adapter.out.UserJpaEntity;
 import com.eomproject.simple_storage.user.application.dto.RegisterUserCommand;
 import com.eomproject.simple_storage.user.application.port.in.RegisterUserUseCase;
 import com.eomproject.simple_storage.user.application.port.out.RegisterUserPort;
-import com.eomproject.simple_storage.user.domain.PasswordManager;
 import com.eomproject.simple_storage.user.domain.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
