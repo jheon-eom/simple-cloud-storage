@@ -1,6 +1,6 @@
 package com.eomproject.simple_storage.user.application;
 
-import com.eomproject.simple_storage.user.adapter.out.UserJpaEntity;
+import com.eomproject.simple_storage.user.adapter.out.persistance.UserJpaEntity;
 import com.eomproject.simple_storage.user.application.dto.RegisterUserCommand;
 import com.eomproject.simple_storage.user.application.port.in.RegisterUserUseCase;
 import com.eomproject.simple_storage.user.application.port.out.RegisterUserPort;
@@ -20,7 +20,9 @@ public class RegisterUserService implements RegisterUserUseCase {
         String encryptPassword = passwordManager.encryptPassword(command.password());
         User user = new User(command.account(), encryptPassword);
         UserJpaEntity userJpaEntity = toEntity(user);
-        registerUserPort.save(userJpaEntity);
+        UserJpaEntity registeredUser = registerUserPort.save(userJpaEntity);
+        // 사용자의 루트 디렉토리 생성
+        createDirectoryUseCase.createRootDirectory(registeredUser.getId());
     }
 
     private UserJpaEntity toEntity(User user) {

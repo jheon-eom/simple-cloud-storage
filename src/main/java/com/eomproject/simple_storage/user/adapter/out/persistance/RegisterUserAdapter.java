@@ -1,4 +1,4 @@
-package com.eomproject.simple_storage.user.adapter.out;
+package com.eomproject.simple_storage.user.adapter.out.persistance;
 
 import com.eomproject.simple_storage.user.application.port.out.RegisterUserPort;
 import lombok.RequiredArgsConstructor;
@@ -11,7 +11,7 @@ public class RegisterUserAdapter implements RegisterUserPort {
     private final UserRepository userRepository;
 
     @Override
-    public void save(UserJpaEntity userJpaEntity) {
-        userRepository.save(userJpaEntity);
+    public UserJpaEntity save(UserJpaEntity userJpaEntity) {
+        return userRepository.save(userJpaEntity);
     }
 }

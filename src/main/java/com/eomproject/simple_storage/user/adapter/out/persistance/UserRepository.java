@@ -1,4 +1,4 @@
-package com.eomproject.simple_storage.user.adapter.out;
+package com.eomproject.simple_storage.user.adapter.out.persistance;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

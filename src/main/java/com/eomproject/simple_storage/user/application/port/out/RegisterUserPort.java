@@ -1,9 +1,9 @@
 package com.eomproject.simple_storage.user.application.port.out;
 
-import com.eomproject.simple_storage.user.adapter.out.UserJpaEntity;
+import com.eomproject.simple_storage.user.adapter.out.persistance.UserJpaEntity;
 
 public interface RegisterUserPort {
 
 
-    void save(UserJpaEntity userJpaEntity);
+    UserJpaEntity save(UserJpaEntity userJpaEntity);
 }
