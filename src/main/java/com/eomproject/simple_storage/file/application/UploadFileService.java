@@ -1,7 +1,6 @@
 package com.eomproject.simple_storage.file.application;
 
 import com.eomproject.simple_storage.file.application.port.in.UploadFileUseCase;
-import com.eomproject.simple_storage.file.domain.FileNameValidator;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 

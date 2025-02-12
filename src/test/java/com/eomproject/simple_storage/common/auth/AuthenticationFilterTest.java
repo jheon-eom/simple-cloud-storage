@@ -1,25 +1,47 @@
 package com.eomproject.simple_storage.common.auth;
 
+import jakarta.servlet.ServletException;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.mock.web.MockFilterChain;
+import org.springframework.mock.web.MockHttpServletRequest;
+import org.springframework.mock.web.MockHttpServletResponse;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import java.io.IOException;
 
-@AutoConfigureMockMvc
-@SpringBootTest
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
 class AuthenticationFilterTest {
 
-    @Autowired
-    private MockMvc mockMvc;
+    private AuthenticationFilter authenticationFilter;
+
+    @BeforeEach
+    void setUp() {
+        authenticationFilter = new AuthenticationFilter();
+    }
 
     @Test
-    void 화이트_리스트가_아닌_경우_인증_헤더를_검사하여_헤더가_없을_경우_예외가_발생한다() throws Exception {
-        // when
-        mockMvc.perform(get("/api/v1/some-api")).andExpect(status().isUnauthorized());
+    void 인증되지_않은_사용자는_예외를_발생시킨다() {
+        // given
+        MockHttpServletRequest request = new MockHttpServletRequest();
+        MockHttpServletResponse response = new MockHttpServletResponse();
+        MockFilterChain filterChain = new MockFilterChain();
+
+        // when & then
+        assertThatThrownBy(() -> authenticationFilter.doFilter(request, response, filterChain))
+            .isInstanceOf(RuntimeException.class);
+    }
+
+    @Test
+    void 인증된_사용자는_필터를_통과한다() throws ServletException, IOException {
+        // given
+        MockHttpServletRequest request = new MockHttpServletRequest();
+        MockHttpServletResponse response = new MockHttpServletResponse();
+        MockFilterChain filterChain = new MockFilterChain();
+
+        request.setAttribute("userId", 1L);
+
+        // when & then
+        authenticationFilter.doFilter(request, response, filterChain);
     }
 }
