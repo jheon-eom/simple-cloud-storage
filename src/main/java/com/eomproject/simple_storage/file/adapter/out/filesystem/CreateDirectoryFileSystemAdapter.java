@@ -11,12 +11,13 @@ import java.nio.file.Path;
 public class CreateDirectoryFileSystemAdapter implements CreateDirectoryPort {
 
     @Override
-    public String createDirectory(String path) {
+    public String createDirectory(String directoryPath) {
         try {
-            Path createdPath = Files.createDirectory(Path.of(path));
+            Path createdPath = Files.createDirectories(Path.of(directoryPath));
             return createdPath.toString();
         } catch (IOException e) {
-            throw new RuntimeException("Failed to create directory : " + path);
+            e.printStackTrace();
+            throw new RuntimeException("Failed to create directory: " + directoryPath);
         }
     }
 }
