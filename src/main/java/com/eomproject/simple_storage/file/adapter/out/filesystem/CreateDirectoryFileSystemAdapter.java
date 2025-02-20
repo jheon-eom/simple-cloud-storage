@@ -16,8 +16,7 @@ public class CreateDirectoryFileSystemAdapter implements CreateDirectoryPort {
             Path createdPath = Files.createDirectories(Path.of(directoryPath));
             return createdPath.toString();
         } catch (IOException e) {
-            e.printStackTrace();
-            throw new RuntimeException("Failed to create directory: " + directoryPath);
+            throw new RuntimeException("File system occur error");
         }
     }
 }

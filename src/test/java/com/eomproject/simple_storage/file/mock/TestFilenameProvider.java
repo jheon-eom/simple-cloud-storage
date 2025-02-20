@@ -5,9 +5,10 @@ import com.eomproject.simple_storage.file.application.FilenameProvider;
 public class TestFilenameProvider extends FilenameProvider {
 
     private static final String PATH_SEPARATOR = "/";
-    private static final String ROOT_DIRECTORY = "/apptest/storage";
+    private static final String ROOT_PATH = "/Users/eomjongheon";
+    private static final String TEST_APP_PATH = "/apptest/storage";
 
-    public String createDirectoryNameWith(Long userId) {
-        return ROOT_DIRECTORY + PATH_SEPARATOR + userId;
+    public String extractDirectoryNameWith(Long userId) {
+        return ROOT_PATH + TEST_APP_PATH + PATH_SEPARATOR + userId;
     }
 }

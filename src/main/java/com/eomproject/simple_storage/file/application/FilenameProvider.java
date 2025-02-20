@@ -6,9 +6,10 @@ import org.springframework.stereotype.Service;
 public class FilenameProvider {
 
     private static final String PATH_SEPARATOR = "/";
-    private static final String ROOT_DIRECTORY = "/app/storage";
+    private static final String ROOT_PATH = "/Users/eomjongheon";
+    private static final String APP_PATH = "/app/storage";
 
-    public String createDirectoryNameWith(Long userId) {
-        return ROOT_DIRECTORY + PATH_SEPARATOR + userId;
+    public String extractDirectoryNameWith(Long userId) {
+        return ROOT_PATH + APP_PATH + PATH_SEPARATOR + userId;
     }
 }

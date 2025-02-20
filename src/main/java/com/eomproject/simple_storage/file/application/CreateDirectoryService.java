@@ -6,8 +6,6 @@ import com.eomproject.simple_storage.file.application.port.out.CreateDirectoryPo
 import com.eomproject.simple_storage.file.application.port.out.SaveDirectoryPort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 
 @RequiredArgsConstructor
 @Service
@@ -20,10 +18,9 @@ public class CreateDirectoryService implements CreateDirectoryUseCase {
     private final CreateDirectoryPort createDirectoryPort;
     private final SaveDirectoryPort saveDirectoryPort;
 
-    @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public void createRootDirectory(Long userId) {
-        String createDirectoryPath = filenameProvider.createDirectoryNameWith(userId);
+        String createDirectoryPath = filenameProvider.extractDirectoryNameWith(userId);
         String createdPath = createDirectoryPort.createDirectory(createDirectoryPath);
 
         DirectoryJpaEntity directoryJpaEntity = toEntity(userId, createdPath);
