@@ -17,9 +17,9 @@ public class UploadFileController {
 
     private final UploadFileUseCase uploadFileUseCase;
 
-    @PostMapping("/{directory}")
-    public ResponseEntity<Void> uploadFile(@PathVariable String directory, MultipartFile file, Long loginUserId) {
-        uploadFileUseCase.uploadFile(directory, file, loginUserId);
+    @PostMapping("/{directoryId}")
+    public ResponseEntity<Void> uploadFile(@PathVariable Long directoryId, MultipartFile file) {
+        uploadFileUseCase.uploadFile(directoryId, file, loginUserId);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 }

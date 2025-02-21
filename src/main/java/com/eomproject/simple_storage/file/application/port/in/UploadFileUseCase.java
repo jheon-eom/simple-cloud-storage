@@ -4,5 +4,5 @@ import org.springframework.web.multipart.MultipartFile;
 
 public interface UploadFileUseCase {
 
-    void uploadFile(String directory, MultipartFile file, Long loginUserId);
+    void uploadFile(Long directoryId, MultipartFile file, Long loginUserId);
 }

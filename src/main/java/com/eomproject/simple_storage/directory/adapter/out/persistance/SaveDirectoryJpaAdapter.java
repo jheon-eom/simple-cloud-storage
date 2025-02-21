@@ -1,8 +1,8 @@
-package com.eomproject.simple_storage.file.adapter.out.persistance;
+package com.eomproject.simple_storage.directory.adapter.out.persistance;
 
-import com.eomproject.simple_storage.file.adapter.out.persistance.jpa.DirectoryJpaEntity;
-import com.eomproject.simple_storage.file.adapter.out.persistance.jpa.DirectoryRepository;
-import com.eomproject.simple_storage.file.application.port.out.SaveDirectoryPort;
+import com.eomproject.simple_storage.directory.adapter.out.persistance.jpa.DirectoryJpaEntity;
+import com.eomproject.simple_storage.directory.adapter.out.persistance.jpa.DirectoryRepository;
+import com.eomproject.simple_storage.directory.application.port.out.SaveDirectoryPort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

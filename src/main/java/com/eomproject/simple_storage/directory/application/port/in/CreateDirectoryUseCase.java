@@ -1,4 +1,4 @@
-package com.eomproject.simple_storage.file.application.port.in;
+package com.eomproject.simple_storage.directory.application.port.in;
 
 public interface CreateDirectoryUseCase {
 

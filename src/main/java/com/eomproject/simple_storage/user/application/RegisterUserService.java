@@ -1,6 +1,6 @@
 package com.eomproject.simple_storage.user.application;
 
-import com.eomproject.simple_storage.file.application.port.in.CreateDirectoryUseCase;
+import com.eomproject.simple_storage.directory.application.port.in.CreateDirectoryUseCase;
 import com.eomproject.simple_storage.user.adapter.out.persistance.jpa.UserJpaEntity;
 import com.eomproject.simple_storage.user.application.dto.RegisterUserCommand;
 import com.eomproject.simple_storage.user.application.port.in.RegisterUserUseCase;

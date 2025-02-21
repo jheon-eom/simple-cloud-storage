@@ -1,8 +1,8 @@
 package com.eomproject.simple_storage.file.mock;
 
-import com.eomproject.simple_storage.file.application.FilenameProvider;
+import com.eomproject.simple_storage.directory.application.DirectoryNameProvider;
 
-public class TestFilenameProvider extends FilenameProvider {
+public class MockDirectoryNameProvider extends DirectoryNameProvider {
 
     private static final String PATH_SEPARATOR = "/";
     private static final String ROOT_PATH = "/Users/eomjongheon";

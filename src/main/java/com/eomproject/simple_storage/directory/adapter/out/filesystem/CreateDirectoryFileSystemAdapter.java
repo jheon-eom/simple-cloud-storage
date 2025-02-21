@@ -1,6 +1,6 @@
-package com.eomproject.simple_storage.file.adapter.out.filesystem;
+package com.eomproject.simple_storage.directory.adapter.out.filesystem;
 
-import com.eomproject.simple_storage.file.application.port.out.CreateDirectoryPort;
+import com.eomproject.simple_storage.directory.application.port.out.CreateDirectoryPort;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;

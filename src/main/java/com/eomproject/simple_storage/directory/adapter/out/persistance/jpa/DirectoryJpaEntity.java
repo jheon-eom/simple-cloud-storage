@@ -1,4 +1,4 @@
-package com.eomproject.simple_storage.file.adapter.out.persistance.jpa;
+package com.eomproject.simple_storage.directory.adapter.out.persistance.jpa;
 
 import com.eomproject.simple_storage.common.entity.AuditingEntity;
 import jakarta.persistence.*;

@@ -1,9 +1,9 @@
-package com.eomproject.simple_storage.file.application;
+package com.eomproject.simple_storage.directory.application;
 
-import com.eomproject.simple_storage.file.adapter.out.persistance.jpa.DirectoryJpaEntity;
-import com.eomproject.simple_storage.file.application.port.in.CreateDirectoryUseCase;
-import com.eomproject.simple_storage.file.application.port.out.CreateDirectoryPort;
-import com.eomproject.simple_storage.file.application.port.out.SaveDirectoryPort;
+import com.eomproject.simple_storage.directory.adapter.out.persistance.jpa.DirectoryJpaEntity;
+import com.eomproject.simple_storage.directory.application.port.in.CreateDirectoryUseCase;
+import com.eomproject.simple_storage.directory.application.port.out.CreateDirectoryPort;
+import com.eomproject.simple_storage.directory.application.port.out.SaveDirectoryPort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 public class CreateDirectoryService implements CreateDirectoryUseCase {
 
     // domain service
-    private final FilenameProvider filenameProvider;
+    private final DirectoryNameProvider directoryNameProvider;
 
     // out port
     private final CreateDirectoryPort createDirectoryPort;
@@ -20,7 +20,7 @@ public class CreateDirectoryService implements CreateDirectoryUseCase {
 
     @Override
     public void createRootDirectory(Long userId) {
-        String createDirectoryPath = filenameProvider.extractDirectoryNameWith(userId);
+        String createDirectoryPath = directoryNameProvider.extractDirectoryNameWith(userId);
         String createdPath = createDirectoryPort.createDirectory(createDirectoryPath);
 
         DirectoryJpaEntity directoryJpaEntity = toEntity(userId, createdPath);

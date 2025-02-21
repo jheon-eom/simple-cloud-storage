@@ -1,9 +1,9 @@
-package com.eomproject.simple_storage.file.application;
+package com.eomproject.simple_storage.directory.application;
 
 import org.springframework.stereotype.Service;
 
 @Service
-public class FilenameProvider {
+public class DirectoryNameProvider {
 
     private static final String PATH_SEPARATOR = "/";
     private static final String ROOT_PATH = "/Users/eomjongheon";
