@@ -13,4 +13,8 @@ public class PasswordManager { // 책임이 명확해지면 Manager 대신 책�
     public String encryptPassword(String password) {
         return passwordEncoder.encode(password);
     }
+
+    public boolean validateLogin(String loginInputPassword, String savedPassword) {
+        return passwordEncoder.matches(loginInputPassword, savedPassword);
+    }
 }

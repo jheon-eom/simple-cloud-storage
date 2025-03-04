@@ -24,18 +24,10 @@ public class RegisterUserService implements RegisterUserUseCase {
         String encryptPassword = passwordManager.encryptPassword(command.password());
         User user = new User(command.account(), encryptPassword);
 
-        UserJpaEntity userJpaEntity = toEntity(user);
-        UserJpaEntity registeredUser = registerUserPort.save(userJpaEntity);
+        Long registeredUserId = registerUserPort.save(user);
 
         createDirectoryUseCase.createRootDirectory(registeredUser.getId());
 
-        return registeredUser.getId();
-    }
-
-    private UserJpaEntity toEntity(User user) {
-        return UserJpaEntity.builder()
-                .account(user.getAccount())
-                .password(user.getPassword())
-                .build();
+        return registeredUserId;
     }
 }

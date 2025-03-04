@@ -1,4 +1,4 @@
-package com.eomproject.simple_storage.common.auth;
+package com.eomproject.simple_storage.common.auth.filter;
 
 import jakarta.servlet.*;
 import org.springframework.stereotype.Component;

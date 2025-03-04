@@ -6,7 +6,7 @@ import com.eomproject.simple_storage.directory.application.port.out.CreateDirect
 import com.eomproject.simple_storage.directory.application.port.out.SaveDirectoryPort;
 import com.eomproject.simple_storage.file.mock.MockDirectoryNameProvider;
 import com.eomproject.simple_storage.user.application.dto.RegisterUserCommand;
-import com.eomproject.simple_storage.user.application.port.out.FindUserByAccountPort;
+import com.eomproject.simple_storage.user.application.port.out.FindUserPort;
 import com.eomproject.simple_storage.user.application.port.out.RegisterUserPort;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +34,7 @@ class RegisterUserServiceTest {
     @Autowired
     SaveDirectoryPort saveDirectoryPort;
     @Autowired
-    FindUserByAccountPort findUserByAccountPort;
+    FindUserPort findUserPort;
 
     MockDirectoryNameProvider mockDirectoryNameProvider = new MockDirectoryNameProvider();
 
@@ -62,7 +62,7 @@ class RegisterUserServiceTest {
 
         // when & // then
         assertThrows(RuntimeException.class, () -> registerUserService.registerUser(command));
-        assertFalse(findUserByAccountPort.existsUserByAccount("test1234"));
+        assertFalse(findUserPort.existsUserByAccount("test1234"));
     }
 
     private RegisterUserService dependenciesInject1() {
