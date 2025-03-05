@@ -1,4 +1,4 @@
-package com.eomproject.simple_storage.user.adapter.in.dto;
+package com.eomproject.simple_storage.user.adapter.in.web.dto;
 
 public record LoginRequest(
         String account,

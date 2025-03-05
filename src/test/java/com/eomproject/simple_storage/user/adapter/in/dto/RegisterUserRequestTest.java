@@ -1,5 +1,6 @@
 package com.eomproject.simple_storage.user.adapter.in.dto;
 
+import com.eomproject.simple_storage.user.adapter.in.web.dto.RegisterUserRequest;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

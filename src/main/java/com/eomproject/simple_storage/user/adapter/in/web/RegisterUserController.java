@@ -1,6 +1,6 @@
 package com.eomproject.simple_storage.user.adapter.in.web;
 
-import com.eomproject.simple_storage.user.adapter.in.dto.RegisterUserRequest;
+import com.eomproject.simple_storage.user.adapter.in.web.dto.RegisterUserRequest;
 import com.eomproject.simple_storage.user.application.port.in.RegisterUserUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
