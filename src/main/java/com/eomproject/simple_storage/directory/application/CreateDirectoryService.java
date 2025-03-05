@@ -4,6 +4,7 @@ import com.eomproject.simple_storage.directory.adapter.out.persistance.jpa.Direc
 import com.eomproject.simple_storage.directory.application.port.in.CreateDirectoryUseCase;
 import com.eomproject.simple_storage.directory.application.port.out.CreateDirectoryPort;
 import com.eomproject.simple_storage.directory.application.port.out.SaveDirectoryPort;
+import com.eomproject.simple_storage.directory.domain.Directory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -22,16 +23,6 @@ public class CreateDirectoryService implements CreateDirectoryUseCase {
     public void createRootDirectory(Long userId) {
         String createDirectoryPath = directoryNameProvider.extractDirectoryNameWith(userId);
         String createdPath = createDirectoryPort.createDirectory(createDirectoryPath);
-
-        DirectoryJpaEntity directoryJpaEntity = toEntity(userId, createdPath);
-        saveDirectoryPort.saveDirectoryMetadata(directoryJpaEntity);
-    }
-
-    private DirectoryJpaEntity toEntity(Long userId, String createdPath) {
-        DirectoryJpaEntity directoryJpaEntity = DirectoryJpaEntity.builder()
-                .path(createdPath)
-                .userId(userId)
-                .build();
-        return directoryJpaEntity;
+        saveDirectoryPort.saveDirectoryMetadata(userId, createdPath);
     }
 }

@@ -4,5 +4,5 @@ import com.eomproject.simple_storage.directory.adapter.out.persistance.jpa.Direc
 
 public interface SaveDirectoryPort {
 
-    void saveDirectoryMetadata(DirectoryJpaEntity directoryJpaEntity);
+    void saveDirectoryMetadata(Long userId, String path);
 }
