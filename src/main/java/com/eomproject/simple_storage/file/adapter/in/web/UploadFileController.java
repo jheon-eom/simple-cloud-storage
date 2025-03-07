@@ -1,5 +1,6 @@
 package com.eomproject.simple_storage.file.adapter.in.web;
 
+import com.eomproject.simple_storage.common.auth.domain.UserSessionContext;
 import com.eomproject.simple_storage.file.application.port.in.UploadFileUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -19,7 +20,7 @@ public class UploadFileController {
 
     @PostMapping("/{directoryId}")
     public ResponseEntity<Void> uploadFile(@PathVariable Long directoryId, MultipartFile file) {
-        uploadFileUseCase.uploadFile(directoryId, file, loginUserId);
+        uploadFileUseCase.uploadFile(directoryId, file, UserSessionContext.getUserId());
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 }

@@ -1,6 +1,6 @@
 package com.eomproject.simple_storage.user.application;
 
-import com.eomproject.simple_storage.common.auth.domain.LoginSessionKeyProvider;
+import com.eomproject.simple_storage.common.auth.application.LoginSessionKeyProvider;
 import com.eomproject.simple_storage.user.application.dto.LoginSessionKey;
 import com.eomproject.simple_storage.user.application.port.in.LoginUseCase;
 import com.eomproject.simple_storage.user.application.port.out.FindUserPort;

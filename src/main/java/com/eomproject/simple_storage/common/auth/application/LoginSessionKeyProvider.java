@@ -1,4 +1,4 @@
-package com.eomproject.simple_storage.common.auth.domain;
+package com.eomproject.simple_storage.common.auth.application;
 
 import java.util.UUID;
 
