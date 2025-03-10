@@ -1,6 +1,7 @@
 package com.eomproject.simple_storage.common.auth.adapter.out.persistance.jpa;
 
 import com.eomproject.simple_storage.common.entity.AuditingEntity;
+import com.eomproject.simple_storage.user.domain.User;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -18,5 +19,7 @@ public class UserSessionJpaEntity extends AuditingEntity {
 
     private String key;
 
-    private String account;
+    @JoinColumn(name = "user_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User user;
 }

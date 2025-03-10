@@ -17,7 +17,8 @@ public class UploadFileService implements UploadFileUseCase {
     @Transactional
     @Override
     public void uploadFile(Long directoryId, MultipartFile file, Long loginUserId) {
-        Directory directory = getDirectoryQuery.getDirectory(directoryId, loginUserId); // 여기까진 디렉토리의 소유주가 검증되지 않은 상태
+        Directory directory = getDirectoryQuery.getDirectory(directoryId);
+
         verifyDirectoryOwnership(directory, loginUserId);
     }
 

@@ -26,7 +26,7 @@ public class RegisterUserService implements RegisterUserUseCase {
 
         Long registeredUserId = registerUserPort.save(user);
 
-        createDirectoryUseCase.createRootDirectory(registeredUser.getId());
+        createDirectoryUseCase.createRootDirectory(registeredUserId);
 
         return registeredUserId;
     }

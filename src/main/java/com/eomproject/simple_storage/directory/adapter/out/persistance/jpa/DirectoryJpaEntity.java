@@ -1,6 +1,7 @@
 package com.eomproject.simple_storage.directory.adapter.out.persistance.jpa;
 
 import com.eomproject.simple_storage.common.entity.AuditingEntity;
+import com.eomproject.simple_storage.user.domain.User;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -18,7 +19,9 @@ public class DirectoryJpaEntity extends AuditingEntity {
     @Id
     private Long id;
 
-    private Long userId;
+    @JoinColumn(name = "user_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User user;
 
     private String path;
 

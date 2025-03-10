@@ -4,5 +4,5 @@ import com.eomproject.simple_storage.directory.domain.Directory;
 
 public interface GetDirectoryQuery {
 
-    Directory getDirectory(Long directoryId, Long loginUserId);
+    Directory getDirectory(Long directoryId);
 }
