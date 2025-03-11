@@ -1,9 +1,11 @@
 package com.eomproject.simple_storage.user.domain;
 
+import lombok.Builder;
 import lombok.Getter;
 
 import java.util.Objects;
 
+@Builder
 @Getter
 public class User {
 

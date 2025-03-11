@@ -1,10 +1,8 @@
 package com.eomproject.simple_storage.directory.application;
 
-import com.eomproject.simple_storage.directory.adapter.out.persistance.jpa.DirectoryJpaEntity;
 import com.eomproject.simple_storage.directory.application.port.in.CreateDirectoryUseCase;
 import com.eomproject.simple_storage.directory.application.port.out.CreateDirectoryPort;
 import com.eomproject.simple_storage.directory.application.port.out.SaveDirectoryPort;
-import com.eomproject.simple_storage.directory.domain.Directory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

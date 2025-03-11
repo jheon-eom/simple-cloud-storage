@@ -1,13 +1,11 @@
 package com.eomproject.simple_storage.directory.adapter.out.persistance.jpa;
 
 import com.eomproject.simple_storage.common.entity.AuditingEntity;
-import com.eomproject.simple_storage.user.domain.User;
+import com.eomproject.simple_storage.user.adapter.out.persistance.jpa.UserJpaEntity;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+@Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -21,7 +19,7 @@ public class DirectoryJpaEntity extends AuditingEntity {
 
     @JoinColumn(name = "user_id")
     @ManyToOne(fetch = FetchType.LAZY)
-    private User user;
+    private UserJpaEntity user;
 
     private String path;
 
