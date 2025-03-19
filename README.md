@@ -36,20 +36,20 @@ i-Cloud 및 Google Drive와 유사한 기능을 제공하는 개인 클라우드
 
 헥사고날(육각형) 아키텍처 적용 (Port-Adapter Pattern) <br>
 ├── adapter <br>
-│   ├── in <br>
-│   │   ├── web (REST API 컨트롤러) <br>
-│   │   ├── dto (데이터 전송 객체) <br>
-│   ├── out <br>
-│   │   ├── persistance (database) <br>
-│   │   ├── external (외부 api) <br>
+│── ├── in <br>
+│── │── ├── web (REST API 컨트롤러) <br>
+│── │── ├── dto (데이터 전송 객체) <br>
+│── ├── out <br>
+│── │── ├── persistance (database) <br>
+│── │── ├── external (외부 api) <br>
 ├── application <br>
-│   ├── service (계층간 통신) <br>
-│   ├── dto (데이터 전송 객체) <br>
-│   ├── port (데이터 전송 객체) <br>
-│   │   ├── in (데이터 전송 객체) <br>
-│   │   ├── out (데이터 전송 객체) <br>
+│── ├── service (계층간 통신) <br>
+│── ├── dto (데이터 전송 객체) <br>
+│── ├── port (데이터 전송 객체) <br>
+│── │── ├── in (데이터 전송 객체) <br>
+│── │── ├── out (데이터 전송 객체) <br>
 ├── domain <br>
-│   ├── model (핵심 도메인 모델) <br>
+│── ├── model (핵심 도메인 모델) <br>
 
 ## TODO (추후 개선 사항)
 
