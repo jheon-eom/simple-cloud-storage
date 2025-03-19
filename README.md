@@ -5,7 +5,7 @@ i-Cloud 및 Google Drive와 유사한 기능을 제공하는 개인 클라우드
 
 ## 기술 스택
 
-  • Java 21
+  • Java 21 <br>
   • SpringBoot 3.4.1
   • Gradle
   • MySQL, H2
