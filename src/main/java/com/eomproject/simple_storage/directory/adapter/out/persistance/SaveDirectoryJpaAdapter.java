@@ -15,7 +15,6 @@ public class SaveDirectoryJpaAdapter implements SaveDirectoryPort {
     @Override
     public void saveDirectoryMetadata(Long userId, String path) {
         DirectoryJpaEntity directoryJpaEntity = DirectoryJpaEntity.builder()
-                .userId(userId)
                 .path(path)
                 .build();
         directoryRepository.save(directoryJpaEntity);
